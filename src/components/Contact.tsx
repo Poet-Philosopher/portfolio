@@ -12,7 +12,7 @@ export function Contact() {
   return (
     <Section id="contact">
       <SectionHeading id="contact" title="Contact">
-        A note about an internship, a model or an essay is welcome.
+        Open to internships in finance, quant and fintech. Email is the quickest way to reach me.
       </SectionHeading>
       <dl className="max-w-2xl divide-y divide-rule border-y border-ink/25">
         {rows.map((r) => (
