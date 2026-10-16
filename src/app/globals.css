@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light is "paper and ink": ledger-green paper, blue-green ink, margin-rule red. */
+:root,
+:root[data-theme="light"] {
+  --paper: 236 239 234;
+  --surface: 245 247 243;
+  --ink: 22 35 31;
+  --muted: 78 92 87;
+  --rule: 196 204 197;
+  --accent: 178 42 36;
+  --ok: 30 124 76;
+}
+
+/* Dark is "terminal at midnight": deep teal-black, amber phosphor. */
+:root[data-theme="dark"] {
+  --paper: 11 19 23;
+  --surface: 17 28 33;
+  --ink: 220 230 226;
+  --muted: 147 166 160;
+  --rule: 38 54 60;
+  --accent: 230 176 75;
+  --ok: 94 200 140;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-serif text-ink antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-5 py-2.5 font-sans text-sm font-medium transition-colors;
+  }
+  .btn-solid {
+    @apply bg-ink text-paper hover:bg-accent;
+  }
+  .btn-line {
+    @apply border border-ink/40 text-ink hover:border-accent hover:text-accent;
+  }
+  .btn-icon {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-sm border border-ink/30 font-sans text-sm text-ink transition-colors hover:border-accent hover:text-accent;
+  }
+  .link {
+    @apply underline decoration-ink/30 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
+  }
+  /* Accounting-style double rule between the two ledger columns. */
+  .ledger-divide {
+    border-left: 3px double rgb(var(--accent) / 0.65);
+  }
+  .drop-cap::first-letter {
+    float: left;
+    font-size: 4.4em;
+    line-height: 0.78;
+    padding: 0.06em 0.1em 0 0;
+    color: rgb(var(--accent));
+  }
+  .hang-quote {
+    text-indent: -0.42em;
+  }
+}
+
+/* The margin rule of a ledger page, fixed beside the content column. */
+.ledger-margin {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: max(8px, calc(50vw - 35.5rem));
+  width: 5px;
+  border-left: 1px solid rgb(var(--accent) / 0.45);
+  border-right: 1px solid rgb(var(--accent) / 0.45);
+  pointer-events: none;
+  z-index: 0;
+}
