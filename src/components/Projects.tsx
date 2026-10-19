@@ -47,20 +47,23 @@ function ProjectEntry({ project: p, meta, githubOk }: { project: Project; meta?:
           <h4 className="font-serif text-2xl leading-tight">{p.title}</h4>
           {p.period && <span className="shrink-0 font-mono text-xs text-muted">{p.period}</span>}
         </div>
+        {p.tag && <p className="mt-1 font-sans text-xs text-muted">{p.tag}</p>}
         <p className="mt-3 font-serif italic text-muted">{p.epigraph}</p>
         <p className="mt-5">{p.problem}</p>
 
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-solid">
-            Live app<span className="sr-only">: {p.title}</span>
-          </a>
+        <div className={`mt-6 flex flex-wrap gap-3 ${p.liveUrl || showCode ? "" : "hidden"}`}>
+          {p.liveUrl && (
+            <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-solid">
+              Live app<span className="sr-only">: {p.title}</span>
+            </a>
+          )}
           {showCode && (
             <a href={meta?.url ?? repoUrl(p.repo as string)} target="_blank" rel="noopener noreferrer" className="btn btn-line">
               Code<span className="sr-only">: {p.title}</span>
             </a>
           )}
         </div>
-        {p.sleeps && <p className="mt-2 font-sans text-xs text-muted">May take a few seconds to wake.</p>}
+        {p.sleeps && p.liveUrl && <p className="mt-2 font-sans text-xs text-muted">May take a few seconds to wake.</p>}
       </div>
 
       <div className="md:col-span-7">

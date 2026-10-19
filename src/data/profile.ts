@@ -62,7 +62,7 @@ export const profile = {
     { group: "Workflow", items: "Git, GitHub, GitHub Actions, VS Code, XAMPP" },
     { group: "APIs and AI", items: "FRED API, Groq API (Llama 3.3 70B), Anthropic Claude API, python-dotenv" },
     { group: "Quant and fintech", items: "Options pricing (Black-Scholes, Greeks, Monte Carlo), algorithmic backtesting, financial modelling, loan and EMI modelling, API data integration" },
-    { group: "Finance", items: "Mutual fund analysis, SIP portfolio management, STCG/LTCG taxation, market research" },
+    { group: "Finance", items: "Mutual fund analysis, SIP portfolio management, STCG/LTCG taxation, market research, DCF valuation, sensitivity analysis" },
     { group: "Computer science", items: "Data structures and algorithms, OOP, DBMS, computer networks, compiler design" },
   ],
 };

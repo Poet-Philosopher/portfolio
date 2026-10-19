@@ -20,10 +20,6 @@ export function Research() {
             </dl>
             <p className="mt-5 text-[0.97rem]">{research.summary}</p>
 
-            <div className="mt-6 border-y border-ink/25 py-4">
-              <p className="font-mono text-4xl font-medium">{research.stat.value}</p>
-              <p className="mt-1 font-sans text-sm text-muted">{research.stat.label}</p>
-            </div>
 
             <a href={research.download.href} download className="btn btn-solid mt-6">{research.download.label}</a>
             <p className="mt-4 font-sans text-xs text-muted">{research.mentorship}</p>

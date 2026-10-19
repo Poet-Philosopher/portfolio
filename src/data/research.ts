@@ -5,8 +5,7 @@ export const research = {
   period: "Dec 2025 to Jan 2026",
   mentorship: "Conducted under the mentorship of Nisant Mohta, Founder of Finlatics. Received a Letter of Recommendation.",
   summary:
-    "BigBasket has moved from scheduled delivery to quick commerce, and BB Now drove about 85% of its revenue mix as of late 2025. The study asks how it should defend and widen that position ahead of a proposed 2026 IPO.",
-  stat: { value: "~85%", label: "of BigBasket\u2019s revenue mix came from BB Now as of late 2025" },
+    "BigBasket has moved from scheduled delivery to quick commerce, with its BB Now segment at the centre of the shift. The study asks how it should defend and widen that position, looking at revenue mix, growth and unit economics, ahead of a proposed 2026 IPO.",
   download: { href: "/BigBasket_Case_Study.docx", label: "Download the full case study (.docx)" },
   findings: [
     {
