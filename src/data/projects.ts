@@ -15,6 +15,8 @@ export interface Project {
   liveUrl?: string;
   /** Optional line shown under the title, e.g. the programme a project belongs to. */
   tag?: string;
+  /** Extra buttons, e.g. a PDF of the work. Files live in /public. */
+  links?: { label: string; href: string }[];
   /** GitHub repo name under Poet-Philosopher. Verify these match your real repo names. */
   repo?: string;
   /** Streamlit free-tier apps sleep; shows the wake-up note. */
@@ -56,11 +58,12 @@ export const projects: Project[] = [
     problem: "A fictional client wanted to know what Nintendo might be worth as an acquisition target, and how sure anyone could be.",
     built: "A five-year unlevered DCF that values Nintendo as a hypothetical target, with an implied equity value of about $79B inside a $71 to $87B range, plus a two-page banker-style company profile.",
     details: [
-      "Five-year unlevered DCF at an 8.5% WACC and a 12x terminal EBITDA multiple.",
+      "Five-year unlevered DCF at an 8.5% WACC and a 12x terminal EBITDA multiple, with 5.0% revenue growth and EBITDA margin widening from 39.7% to 42.0%. Enterprise value of about $69.6B, plus cash less debt, gives the $78.7B equity value.",
       "WACC and terminal-multiple sensitivity tables for enterprise value and implied share price, used to frame the valuation range.",
       "Two-page company profile synthesised from the FY2021 annual report, with Revenue/EBITDA and geographic revenue charts, a SWOT and strategic alternatives.",
     ],
     stack: ["DCF valuation", "Sensitivity analysis", "Financial modelling"],
+    links: [{ label: "Profile and DCF (PDF)", href: "/Nintendo_Profile_and_DCF.pdf" }],
   },
   {
     slug: "repo-rate-loan-impact",

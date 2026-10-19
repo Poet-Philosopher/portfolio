@@ -39,6 +39,14 @@ export const profile = {
     cpse: { value: 37 } satisfies Count,
     tests: { value: 83 } satisfies Count,
   },
+  certificates: [
+    {
+      title: "Investment Banking Job Simulation, Bank of America (Forage)",
+      body: "Certificate of completion for practical tasks in company analysis and SWOT, strategic alternatives, financial modeling, and communicating successfully.",
+      year: "Oct 2026",
+      href: "/Bank_of_America_IB_Simulation_Certificate.pdf",
+    },
+  ],
   education: [
     { school: "IIIT Bhopal", detail: "B.Tech, Computer Science & Engineering", score: "7.71 SGPA", note: "Pursuing", years: "2024 to 2028" },
     { school: "Orchid International School", detail: "Class XII (PCMB)", score: "87.2%", note: "5th rank", years: "2024" },

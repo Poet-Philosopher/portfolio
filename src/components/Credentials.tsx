@@ -18,6 +18,24 @@ export function Credentials() {
           </Reveal>
 
           <Reveal>
+            <h3 className="font-serif text-2xl">Certificates</h3>
+            <ul className="mt-4 divide-y divide-rule border-y border-ink/25">
+              {profile.certificates.map((c) => (
+                <li key={c.title} className="grid gap-1 py-4 sm:grid-cols-12 sm:gap-4">
+                  <div className="sm:col-span-10">
+                    <p className="font-serif text-lg leading-snug">{c.title}</p>
+                    <p className="text-[0.95rem] text-muted">{c.body}</p>
+                    <a href={c.href} target="_blank" rel="noopener noreferrer" className="link mt-1 inline-block font-sans text-sm">
+                      View certificate (PDF)
+                    </a>
+                  </div>
+                  <p className="font-mono text-xs text-muted sm:col-span-2 sm:text-right">{c.year}</p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal>
             <h3 className="font-serif text-2xl">Education</h3>
             <div className="mt-4 divide-y divide-rule border-y border-ink/25">
               {profile.education.map((e) => (

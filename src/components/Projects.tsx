@@ -51,7 +51,7 @@ function ProjectEntry({ project: p, meta, githubOk }: { project: Project; meta?:
         <p className="mt-3 font-serif italic text-muted">{p.epigraph}</p>
         <p className="mt-5">{p.problem}</p>
 
-        <div className={`mt-6 flex flex-wrap gap-3 ${p.liveUrl || showCode ? "" : "hidden"}`}>
+        <div className={`mt-6 flex flex-wrap gap-3 ${p.liveUrl || showCode || p.links?.length ? "" : "hidden"}`}>
           {p.liveUrl && (
             <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-solid">
               Live app<span className="sr-only">: {p.title}</span>
@@ -62,6 +62,11 @@ function ProjectEntry({ project: p, meta, githubOk }: { project: Project; meta?:
               Code<span className="sr-only">: {p.title}</span>
             </a>
           )}
+          {p.links?.map((l) => (
+            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="btn btn-solid">
+              {l.label}<span className="sr-only">: {p.title}</span>
+            </a>
+          ))}
         </div>
         {p.sleeps && p.liveUrl && <p className="mt-2 font-sans text-xs text-muted">May take a few seconds to wake.</p>}
       </div>
