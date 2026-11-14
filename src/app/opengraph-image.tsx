@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Abhimanyu Patel: quant and fintech builder, writer of poet philosopher";
+export const alt = "Abhimanyu Patel: valuation and deal modelling, I build valuation models and write essays.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

@@ -9,11 +9,11 @@ const sans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], 
 const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
 
 const description =
-  "Abhimanyu Patel is a B.Tech CSE student at IIIT Bhopal and CFA Level 1 candidate building toward quant and fintech roles. He writes poet philosopher, a newsletter on philosophy, political history and culture.";
+  "Abhimanyu Patel is a B.Tech CSE student at IIIT Bhopal and CFA Level 1 candidate building toward investment banking, private equity, venture capital and consulting. He writes poet philosopher, a newsletter on philosophy, political history and culture.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Abhimanyu Patel | Quant, fintech and essays", template: "%s | Abhimanyu Patel" },
+  title: { default: "Abhimanyu Patel | Valuation, deals and essays", template: "%s | Abhimanyu Patel" },
   description,
   alternates: { canonical: "/" },
   openGraph: { title: "Abhimanyu Patel", description, type: "website", url: siteUrl, siteName: "Abhimanyu Patel" },

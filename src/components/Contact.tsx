@@ -12,7 +12,7 @@ export function Contact() {
   return (
     <Section id="contact">
       <SectionHeading id="contact" title="Contact">
-        Open to internships in finance, quant and fintech. Email is the quickest way to reach me.
+        Open to internships in investment banking, private equity, venture capital and consulting. Email is the quickest way to reach me.
       </SectionHeading>
       <dl className="max-w-2xl divide-y divide-rule border-y border-ink/25">
         {rows.map((r) => (

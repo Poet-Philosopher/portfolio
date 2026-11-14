@@ -36,7 +36,7 @@ export function Hero({ latest }: { latest: Essay | null }) {
             <div className="grid grid-cols-2">
               <Cell>
                 <Figure><CountUp to={f.banks.value} delay={0.2} /></Figure>
-                <Label>banks benchmarked across 4 loan types</Label>
+                <Label>listed companies valued by comps, DCF and LBO</Label>
               </Cell>
               <Cell divide>
                 <Figure><CountUp to={a.subscribers.value} suffix={a.subscribers.suffix} delay={0.2} /></Figure>
@@ -46,7 +46,7 @@ export function Hero({ latest }: { latest: Essay | null }) {
             <div className="grid grid-cols-2 border-t border-rule">
               <Cell>
                 <Figure><CountUp to={f.cpse.value} delay={0.45} /></Figure>
-                <Label>public-sector bond issuers tracked</Label>
+                <Label>public-sector issuers scored for credit risk</Label>
               </Cell>
               <Cell divide>
                 <Figure>
@@ -58,7 +58,7 @@ export function Hero({ latest }: { latest: Essay | null }) {
             <div className="grid grid-cols-2 border-t border-rule">
               <Cell>
                 <Figure><CountUp to={f.tests.value} delay={0.7} /></Figure>
-                <Label>automated tests behind one loan model</Label>
+                <Label>automated tests behind one options pricer</Label>
               </Cell>
               <Cell divide>
                 {latest ? (
