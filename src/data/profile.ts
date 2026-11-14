@@ -3,21 +3,22 @@ import type { Count } from "@/data/writing";
 /*
   Hero positioning options. Change `heroIndex` to switch.
 
-  0. "I model markets and write essays. Both begin by asking what a thing is actually worth."
+  0. "I build valuation models and write essays. Both begin by asking what a thing is actually worth."
   1. "A poet's heart, a philosopher's mind, and a jack-of-all-trades' curiosity."   (my Substack tagline)
-  2. "I build pricing models and read philosophy, because both are about what survives scrutiny."
+  2. "I build deal models and read philosophy, because both are about what survives scrutiny."
 */
 export const heroOptions = [
-  "I model markets and write essays. Both begin by asking what a thing is actually worth.",
+  "I build valuation models and write essays. Both begin by asking what a thing is actually worth.",
   "A poet's heart, a philosopher's mind, and a jack-of-all-trades' curiosity.",
-  "I build pricing models and read philosophy, because both are about what survives scrutiny.",
+  "I build deal models and read philosophy, because both are about what survives scrutiny.",
 ];
 export const heroIndex = 0;
 
 export const profile = {
   name: "Abhimanyu Patel",
   email: "patelabhimanyu54@gmail.com",
-  roleLine: "B.Tech Computer Science at IIIT Bhopal. CFA Level 1 candidate, February 2027.",
+  roleLine:
+    "B.Tech Computer Science at IIIT Bhopal. CFA Level 1 candidate, February 2027. Interested in investment banking, private equity, venture capital and consulting.",
   positioning: heroOptions[heroIndex],
   /** Put a file at /public/headshot.jpg and set this to "/headshot.jpg". null hides it. */
   headshot: null as string | null,
@@ -28,16 +29,20 @@ export const profile = {
     substack: "https://thepoeticgeneralist.substack.com/",
   },
   about: [
-    "I study computer science at IIIT Bhopal and I am working toward roles in finance, quant and fintech. I am registered for the CFA Program and sit Level 1 in February 2027.",
-    "Most of what I build starts as a question about money: what a loan really costs when the repo rate moves, what a currency should be worth, which public-sector issuer is carrying risk. I write the answer as code and test it until it stops surprising me.",
+    "I study computer science at IIIT Bhopal and I am working toward roles in investment banking, private equity, venture capital and consulting. I am registered for the CFA Program and sit Level 1 in February 2027.",
+    "Most of what I build starts as a valuation question: what a listed company is worth by comps, DCF and LBO, which public-sector issuer is carrying credit risk, what an option should cost. I write the answer as code and test it until it stops surprising me.",
     "The other half of my work is writing. poet philosopher, my newsletter, covers philosophy, political history and culture, and has 1000+ subscribers. Writing taught me what a model cannot: an argument has to survive a reader who disagrees. A good model and a good essay fail the same way, by hiding their assumptions, so I try to put mine on the page.",
     "I also co-coordinate Shankh, the IIIT Bhopal college magazine.",
   ],
-  /** Hero ledger. Left column is computed work, right column is composed work. */
+  /**
+   * Hero ledger. Left column is computed work, right column is composed work.
+   * The key names are kept from an earlier version: banks = companies valued (India Deal Lab case studies),
+   * cpse = issuers scored, tests = pytest tests behind the options pricer.
+   */
   ledgerFigures: {
-    banks: { value: 7 } satisfies Count,
+    banks: { value: 5 } satisfies Count,
     cpse: { value: 37 } satisfies Count,
-    tests: { value: 83 } satisfies Count,
+    tests: { value: 155 } satisfies Count,
   },
   certificates: [
     {
@@ -65,12 +70,7 @@ export const profile = {
     { title: "Personal investing", body: "A mutual fund SIP portfolio on Groww across domestic equity, international equity, gold and arbitrage funds, built for non-correlated returns.", year: "Ongoing" },
   ],
   skills: [
-    { group: "Languages", items: "C, C++17/20, Python 3, JavaScript (ES6+), HTML5, CSS3" },
-    { group: "Data and web tools", items: "Streamlit, Flask, pandas, NumPy, Plotly, SQL, PostgreSQL, yfinance, pytest, Playwright" },
-    { group: "Workflow", items: "Git, GitHub, GitHub Actions, VS Code, XAMPP" },
-    { group: "APIs and AI", items: "FRED API, Groq API (Llama 3.3 70B), Anthropic Claude API, python-dotenv" },
-    { group: "Quant and fintech", items: "Options pricing (Black-Scholes, Greeks, Monte Carlo), algorithmic backtesting, financial modelling, loan and EMI modelling, API data integration" },
-    { group: "Finance", items: "Mutual fund analysis, SIP portfolio management, STCG/LTCG taxation, market research, DCF valuation, sensitivity analysis" },
-    { group: "Computer science", items: "Data structures and algorithms, OOP, DBMS, computer networks, compiler design" },
+    { group: "Finance", items: "Excel (formula-driven financial models), DCF and LBO modelling, trading comps, sensitivity analysis, football field, IC memos, derivatives pricing, credit risk analysis" },
+    { group: "Languages and tools", items: "Python 3 (pandas, NumPy, Plotly, Streamlit, yfinance, pytest), C++17/20, SQL, FRED API, Git and GitHub Actions" },
   ],
 };
