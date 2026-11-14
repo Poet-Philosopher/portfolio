@@ -29,6 +29,26 @@ export const groups: { id: ProjectGroup; title: string; blurb: string }[] = [
 ];
 
 export const projects: Project[] = [
+    {
+    slug: "india-deal-lab",
+    title: "India Deal Lab",
+    group: "quant",
+    period: "Nov 2026",
+    epigraph: "A price is only an offer until someone shows the returns that justify it.",
+    problem: "Valuing a listed Indian company usually means juggling separate spreadsheets for comps, DCF and LBO, and the assumptions get lost between them. This app puts all three methods on one set of inputs and shows where they agree and disagree.",
+    built: "A Streamlit app that values NSE-listed companies using trading comparables, DCF and a leveraged buyout, compares the results on a football field, and writes an investment committee memo from the numbers.",
+    details: [
+      "Trading comps with peer multiples, outlier exclusion and implied valuation ranges. DCF with a WACC build, a Gordon growth terminal value and an exit-multiple terminal value, plus sensitivity tables.",
+      "LBO model with senior and mezzanine debt (cash and PIK interest), a cash sweep, sponsor IRR, returns attribution, and a solver for the maximum entry price at a chosen hurdle IRR.",
+      "Football field combining every method into one valuation range, with the IC memo generated from the same model outputs.",
+      "Data layer pulls live prices and financials from Yahoo Finance via yfinance and falls back to bundled snapshots. A scheduled GitHub Actions workflow refreshes the snapshots, and a Playwright keep-alive job wakes the app if Streamlit puts it to sleep.",
+      "Formula-driven Excel export of the model, and 36 automated pytest tests covering the valuation maths and an app smoke test.",
+    ],
+    stack: ["Python", "Streamlit", "pandas", "NumPy", "Plotly", "openpyxl", "yfinance", "pytest", "Playwright", "GitHub Actions"],
+    liveUrl: "https://india-deal-lab-r7asknhxxmfjnphcarmczv.streamlit.app/",
+    repo: "india-deal-lab",
+    sleeps: true,
+  },
   {
     slug: "options-pricing-greeks-lab",
     title: "Options Pricing & Greeks Lab",

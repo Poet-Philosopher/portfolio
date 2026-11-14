@@ -37,8 +37,8 @@ export async function Projects() {
 function ProjectEntry({ project: p, meta, githubOk }: { project: Project; meta?: RepoMeta; githubOk: boolean }) {
   // If GitHub answered and the repo is not in the public list, hide the Code button rather than link to a 404.
   const showCode = Boolean(p.repo) && (!githubOk || Boolean(meta));
-  const visible = p.details.slice(0, 2);
-  const more = p.details.slice(2);
+  const visible = p.details.slice(0, 3);
+  const more = p.details.slice(3);
 
   return (
     <article className="grid gap-8 py-10 md:grid-cols-12 md:gap-10">
