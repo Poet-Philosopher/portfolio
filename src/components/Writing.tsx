@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { writingConfig } from "@/data/writing";
 import { formatDate, formatStamp } from "@/lib/format";
+import { getAudience } from "@/lib/stats";
 import type { WritingData } from "@/lib/types";
 import { orderEssays, pickEpigraph } from "@/lib/writing";
 import { CountUp } from "@/components/CountUp";
@@ -78,8 +79,9 @@ export function Writing({ data }: { data: WritingData }) {
   );
 }
 
-function Subscribe() {
-  const { audience, baseUrl, displayName, handle, showEmbed } = writingConfig;
+async function Subscribe() {
+  const { baseUrl, displayName, handle, showEmbed } = writingConfig;
+  const audience = await getAudience();
   return (
     <div className="mt-16 grid gap-8 border border-ink/25 bg-surface p-6 md:grid-cols-12 md:p-8">
       <div className="md:col-span-7">

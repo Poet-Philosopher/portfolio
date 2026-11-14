@@ -1,12 +1,12 @@
 import { profile } from "@/data/profile";
-import { writingConfig } from "@/data/writing";
 import type { Essay } from "@/lib/types";
+import { getAudience } from "@/lib/stats";
 import { CountUp } from "@/components/CountUp";
 import { WordReveal } from "@/components/WordReveal";
 
-export function Hero({ latest }: { latest: Essay | null }) {
+export async function Hero({ latest }: { latest: Essay | null }) {
   const f = profile.ledgerFigures;
-  const a = writingConfig.audience;
+  const a = await getAudience();
   return (
     <section id="top" aria-labelledby="hero-title" className="relative pb-20 pt-14 md:pb-28 md:pt-24">
       <div className="mx-auto grid max-w-6xl gap-14 px-6 md:px-10 lg:grid-cols-12 lg:gap-10">
