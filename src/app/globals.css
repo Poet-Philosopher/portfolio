@@ -2,19 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light is "paper and ink": ledger-green paper, blue-green ink, margin-rule red. */
+/*
+  Light is "paper and ink": ledger-green paper, near-white ledger sheets on top of it,
+  blue-green ink and a margin-rule red. Dark is "terminal at midnight": deep teal-black and amber.
+  Both themes use the same roles, so every component works in either without changes.
+*/
 :root,
 :root[data-theme="light"] {
-  --paper: 236 239 234;
-  --surface: 245 247 243;
-  --ink: 22 35 31;
-  --muted: 78 92 87;
-  --rule: 196 204 197;
-  --accent: 178 42 36;
-  --ok: 30 124 76;
+  --paper: 234 239 233;
+  --surface: 250 251 248;
+  --ink: 15 31 27;
+  --muted: 66 82 76;
+  --rule: 178 190 181;
+  --accent: 168 38 31;
+  --ok: 22 112 66;
+  --line: rgb(15 31 27 / 0.035);
+  --sheet-shadow: 0 1px 0 rgb(15 31 27 / 0.06), 0 16px 30px -20px rgb(15 31 27 / 0.32);
 }
 
-/* Dark is "terminal at midnight": deep teal-black, amber phosphor. */
 :root[data-theme="dark"] {
   --paper: 11 19 23;
   --surface: 17 28 33;
@@ -23,6 +28,8 @@
   --rule: 38 54 60;
   --accent: 230 176 75;
   --ok: 94 200 140;
+  --line: rgb(230 176 75 / 0.03);
+  --sheet-shadow: none;
   color-scheme: dark;
 }
 
@@ -35,6 +42,23 @@
     @apply bg-paper font-serif text-ink antialiased;
     font-size: 1.0625rem;
     line-height: 1.7;
+    font-optical-sizing: auto;
+    /* Faint ruled lines, like ledger paper. */
+    background-image: linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 100% 2.125rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  p,
+  li {
+    text-wrap: pretty;
+  }
+  .font-mono {
+    font-variant-numeric: tabular-nums;
   }
   :focus-visible {
     outline: 2px solid rgb(var(--accent));
@@ -65,18 +89,19 @@
   .btn-solid {
     @apply bg-ink text-paper hover:bg-accent;
   }
+  /* Borders sit at 55% ink so they clear the 3:1 contrast needed for interactive outlines in both themes. */
   .btn-line {
-    @apply border border-ink/40 text-ink hover:border-accent hover:text-accent;
+    @apply border border-ink/55 text-ink hover:border-accent hover:text-accent;
   }
   .btn-icon {
-    @apply inline-flex h-9 w-9 items-center justify-center rounded-sm border border-ink/30 font-sans text-sm text-ink transition-colors hover:border-accent hover:text-accent;
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-sm border border-ink/55 font-sans text-sm text-ink transition-colors hover:border-accent hover:text-accent;
   }
   .link {
-    @apply underline decoration-ink/30 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
+    @apply underline decoration-ink/45 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
   }
   /* Accounting-style double rule between the two ledger columns. */
   .ledger-divide {
-    border-left: 3px double rgb(var(--accent) / 0.65);
+    border-left: 3px double rgb(var(--accent) / 0.7);
   }
   .drop-cap::first-letter {
     float: left;
@@ -90,6 +115,23 @@
   }
 }
 
+/* Light mode: ledger sheets lift off the paper (dark mode has no shadow). */
+.bg-surface {
+  box-shadow: var(--sheet-shadow);
+}
+
+/* Form fields and filter chips keep a 3:1 outline against the page in both themes. */
+input[type="search"],
+input[type="email"],
+button[aria-pressed="false"] {
+  border-color: rgb(var(--ink) / 0.55);
+}
+input[type="search"]:focus-visible,
+input[type="email"]:focus-visible,
+button[aria-pressed="false"]:hover {
+  border-color: rgb(var(--accent));
+}
+
 /* The margin rule of a ledger page, fixed beside the content column. */
 .ledger-margin {
   position: fixed;
@@ -97,8 +139,8 @@
   bottom: 0;
   left: max(8px, calc(50vw - 35.5rem));
   width: 5px;
-  border-left: 1px solid rgb(var(--accent) / 0.45);
-  border-right: 1px solid rgb(var(--accent) / 0.45);
+  border-left: 1px solid rgb(var(--accent) / 0.5);
+  border-right: 1px solid rgb(var(--accent) / 0.5);
   pointer-events: none;
   z-index: 0;
 }
